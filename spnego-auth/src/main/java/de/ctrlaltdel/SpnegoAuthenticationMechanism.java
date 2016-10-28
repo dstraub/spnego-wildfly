@@ -7,6 +7,7 @@ import org.wildfly.extension.undertow.security.AccountImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import java.io.Serializable;
 import java.security.Principal;
 import java.util.Collections;
 import java.util.Map;
@@ -95,7 +96,7 @@ public class SpnegoAuthenticationMechanism implements AuthenticationMechanism {
         }
     }
 
-    public static class SimplePrincipal implements Principal {
+    public static class SimplePrincipal implements Principal, Serializable {
         private final String name;
         private final String credential;
         public SimplePrincipal(String name, String credential) {
